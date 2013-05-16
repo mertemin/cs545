@@ -1,1 +1,1 @@
-I am trying something... aaaa
+This project is created for an homework. Working with other people easier with GIT.
