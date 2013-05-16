@@ -1,4 +1,5 @@
-package cs545.project;
+package edu.bilkent.cs545.spouts;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,7 +24,7 @@ public class TweetSpout extends BaseRichSpout {
 	@Override
 	public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
 		_collector = collector;
-		File folder = new File("/Users/mert/Public/School/CS545/project/data/step2");
+		File folder = new File("data/step2");
 		fileList = folder.listFiles();
 		reinitializeBufferedReader(fileID);
 	}

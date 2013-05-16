@@ -1,8 +1,12 @@
-package cs545.project;
+package edu.bilkent.cs545.bolts;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import edu.bilkent.cs545.utils.Stemmer;
+
 
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.OutputFieldsDeclarer;

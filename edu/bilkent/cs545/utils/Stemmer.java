@@ -1,4 +1,5 @@
-package cs545.project;
+package edu.bilkent.cs545.utils;
+
 
 import java.io.Serializable;
 
@@ -44,7 +45,7 @@ import java.io.Serializable;
  * the various stem(something) methods.
  */
 
-class Stemmer implements Serializable {
+public class Stemmer implements Serializable {
 	private char[] b;
 	private int i, /* offset into b */
 	i_end, /* offset to end of stemmed word */
