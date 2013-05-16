@@ -59,6 +59,7 @@ public class CleanBolt extends BaseBasicBolt {
 
 		// For now let's emit a string rather than bag-of-words
 		// Emitting bag-of-words would require a serializable data structure
+		System.out.println(newTweet);
 		collector.emit(new Values(newTweet));
 	}
 
