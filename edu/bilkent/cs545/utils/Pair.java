@@ -8,9 +8,13 @@ public class Pair implements Serializable{
 	
 	String forwards;
 	String backwards;
+	String first;
+	String second;
 	private static final long serialVersionUID = 1L;
 
 	public Pair(String first, String second){
+		this.first = first;
+		this.second = second;
 		forwards = first + second;
 		backwards = second + first;
 	}
@@ -43,6 +47,22 @@ public class Pair implements Serializable{
 		}
 		
 		
+	}
+
+	public String getFirst() {
+		return first;
+	}
+
+	public void setFirst(String first) {
+		this.first = first;
+	}
+
+	public String getSecond() {
+		return second;
+	}
+
+	public void setSecond(String second) {
+		this.second = second;
 	}
 	
 }
