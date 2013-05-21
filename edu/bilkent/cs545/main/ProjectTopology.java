@@ -1,6 +1,9 @@
 package edu.bilkent.cs545.main;
 
 
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+
 import edu.bilkent.cs545.bolts.CleanBolt;
 import edu.bilkent.cs545.bolts.CreatePairsBolt;
 import edu.bilkent.cs545.bolts.LossyCountingBolt;
@@ -11,12 +14,12 @@ import backtype.storm.topology.TopologyBuilder;
 
 public class ProjectTopology {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 		TopologyBuilder builder = new TopologyBuilder();
 		builder.setSpout("tweet", new TweetSpout());
 		builder.setBolt("bag-of-words", new CleanBolt(), 2).noneGrouping("tweet");
 		builder.setBolt("createPairs", new CreatePairsBolt(), 2).shuffleGrouping("bag-of-words");
-		builder.setBolt("lossyCOunting", new LossyCountingBolt(), 2).shuffleGrouping("createPairs");
+		builder.setBolt("lossyCounting", new LossyCountingBolt(), 2).shuffleGrouping("createPairs");
 		
 
 		Config conf = new Config();

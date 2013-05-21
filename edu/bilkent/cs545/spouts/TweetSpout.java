@@ -32,7 +32,10 @@ public class TweetSpout extends BaseRichSpout {
 	@Override
 	public void nextTuple() {
 		// Wait for a second before emitting
-		Utils.sleep(1000);
+		//Utils.sleep(1000);
+		if(fileID >= fileList.length){
+			_collector.emit(new Values("kalender"));
+		}
 		try {
 			if (br.ready()) {
 				// If BufferedReader is ready, then read a line and emit it

@@ -7,7 +7,7 @@ public class Pair implements Serializable{
 
 	
 	String forwards;
-	String backwards;
+	
 	String first;
 	String second;
 	private static final long serialVersionUID = 1L;
@@ -15,8 +15,12 @@ public class Pair implements Serializable{
 	public Pair(String first, String second){
 		this.first = first;
 		this.second = second;
-		forwards = first + second;
-		backwards = second + first;
+		if(first.compareTo(second)<= 0 ){
+			forwards = first + second;
+		}else{
+			forwards = second + first;
+		}
+		
 	}
 
 	public String getForwards() {
@@ -27,25 +31,14 @@ public class Pair implements Serializable{
 		this.forwards = forwards;
 	}
 
-	public String getBackwards() {
-		return backwards;
-	}
 
-	public void setBackwards(String backwards) {
-		this.backwards = backwards;
-	}
-	
-
-	public String check( HashMap<String, Integer> map){
+	public boolean check( HashMap<String, Integer> map){
 		
 		if(map.containsKey(this.forwards)){
-			return this.forwards;
-		}else if(map.containsKey(this.backwards)){
-			return this.backwards;
+			return true;
 		}else{
-			return null;
+			return false;
 		}
-		
 		
 	}
 

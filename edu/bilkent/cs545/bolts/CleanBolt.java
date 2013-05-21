@@ -31,7 +31,9 @@ public class CleanBolt extends BaseBasicBolt {
 	public void execute(Tuple input, BasicOutputCollector collector) {
 		// Read the raw tweet
 		String tweet = input.getString(0);
-
+		if(tweet.equals("kalender")){
+			collector.emit(new Values("kalender"));
+		}
 		// Remove tags, hashes, links
 		tweet = tweet.replaceAll("(#[^\\s]+)|(@[^\\s]+)|(http[s]?)[\\S]+", "").toLowerCase();
 
