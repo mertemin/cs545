@@ -48,7 +48,7 @@ public class CleanBolt extends BaseBasicBolt {
 			// Add stemmed word to bag-of-words if
 			// it's length is greater than 1
 			// and it is not in the stop words
-			if ((word.length() > 1) && !(stopWords.contains(word))) {
+			if ((word.length() > 1) && !(stopWords.contains(new String(word)))) {
 				bagOfWords.add(s.stem(word));
 			}
 		}
